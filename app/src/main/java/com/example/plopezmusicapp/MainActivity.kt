@@ -11,10 +11,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHost
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.plopezmusicapp.models.SongViewModel
 import com.example.plopezmusicapp.ui.theme.HomeScreenRoute
 import com.example.plopezmusicapp.ui.theme.PLopezMusicAppTheme
 import com.example.plopezmusicapp.views.HomeScreen
@@ -25,6 +27,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
+            val songViewModel: SongViewModel = viewModel()
             PLopezMusicAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
@@ -33,7 +36,8 @@ class MainActivity : ComponentActivity() {
                     ){
                         composable<HomeScreenRoute> {
                             HomeScreen(
-                                navController
+                                navController,
+                                viewModel = songViewModel
                             )
                         }
                     }
