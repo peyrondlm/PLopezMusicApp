@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -17,9 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.plopezmusicapp.components.AlbumList
 import com.example.plopezmusicapp.components.Greeting
+import com.example.plopezmusicapp.components.MiniPlayer
 import com.example.plopezmusicapp.components.RecentlyPlayed
 import com.example.plopezmusicapp.components.SeeMoreLabel
 import com.example.plopezmusicapp.models.SongViewModel
@@ -103,5 +107,14 @@ fun HomeScreen(
                 )
             }
         }
+
+        // Mini reproductor
+        MiniPlayer(
+            album = viewModel.songs.getOrNull(0),
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .padding(horizontal = 20.dp, vertical = 10.dp)
+        )
     }
 }
