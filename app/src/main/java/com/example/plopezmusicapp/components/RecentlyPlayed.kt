@@ -35,7 +35,7 @@ fun RecentlyPlayed(
     onClick: (SongModel) -> Unit
 ) {
     LazyColumn(
-        modifier = Modifier.padding(start = 20.dp, end = 20.dp)
+        modifier = Modifier.padding(start = 20.dp, end = 20.dp, bottom = 80.dp)
     ) {
         items(items = viewModel.songs) { item ->
             Row(

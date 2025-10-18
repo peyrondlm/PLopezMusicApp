@@ -227,7 +227,8 @@ fun AlbumDetail(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Row (
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier.weight(1f)
                         ){
                             AsyncImage(
                                 modifier = Modifier
