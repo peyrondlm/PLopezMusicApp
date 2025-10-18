@@ -12,4 +12,8 @@ class SongViewModel : ViewModel() {
     fun updateSongs(newSongs: List<SongModel>) {
         songs = newSongs
     }
+
+    fun getSongById(id: String): SongModel? {
+        return songs.find { it.id == id }
+    }
 }
